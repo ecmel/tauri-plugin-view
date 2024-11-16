@@ -12,7 +12,7 @@ npm install tauri-plugin-view-api
 
 ```ini
 [dependencies]
-tauri-plugin-view = { git = "https://github.com/ecmel/tauri-plugin-view" }
+tauri-plugin-view = "0.0.3"
 ```
 
 **`src-tauri/src/lib.rs`**
