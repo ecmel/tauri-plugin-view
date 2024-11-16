@@ -1,0 +1,16 @@
+[package]
+name = "tauri-plugin-view"
+version = "0.0.2"
+authors = ["Ecmel Ercan"]
+description = "A mobile plugin for Tauri for viewing and sharing files."
+edition = "2021"
+exclude = ["/examples", "/webview-dist", "/webview-src", "/node_modules"]
+links = "tauri-plugin-view"
+
+[dependencies]
+tauri = "2.0.0"
+serde = "1.0"
+thiserror = "1.0"
+
+[build-dependencies]
+tauri-plugin = { version = "2.0.0", features = ["build"] }
