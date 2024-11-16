@@ -1,7 +1,7 @@
 {
   "name": "tauri-plugin-view-api",
   "description": "A mobile plugin for Tauri for viewing and sharing files.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/ecmel/tauri-plugin-view.git"
