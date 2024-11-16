@@ -12,7 +12,7 @@ npm install tauri-plugin-view-api
 
 ```ini
 [dependencies]
-tauri-plugin-view = "0.0.3"
+tauri-plugin-view = "0.0.4"
 ```
 
 **`src-tauri/src/lib.rs`**

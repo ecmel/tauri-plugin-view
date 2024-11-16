@@ -1,6 +1,6 @@
 [package]
 name = "tauri-plugin-view"
-version = "0.0.3"
+version = "0.0.4"
 authors = ["Ecmel Ercan"]
 description = "A mobile plugin for Tauri for viewing and sharing files."
 edition = "2021"
