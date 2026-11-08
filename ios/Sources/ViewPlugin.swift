@@ -36,21 +36,28 @@ class Controller: UIViewController, UIDocumentInteractionControllerDelegate {
     super.viewDidLoad()
     controller = UIDocumentInteractionController(url: self.url)
     controller.delegate = self
-    if !controller.presentPreview(animated: true) {
-      controller.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
+    if !controller.presentPreview(animated: true)
+      && !controller.presentOpenInMenu(from: self.view.bounds, in: self.view, animated: true)
+    {
+      // Nothing was shown, so nothing will dismiss this view: take it down
+      // now, or it stays over the app and swallows every tap.
+      DispatchQueue.main.async { self.teardown() }
     }
   }
 
-  func documentInteractionControllerDidEndPreview(_ controller: UIDocumentInteractionController) {
+  func teardown() {
     self.view.removeFromSuperview()
     self.removeFromParent()
+  }
+
+  func documentInteractionControllerDidEndPreview(_ controller: UIDocumentInteractionController) {
+    teardown()
   }
 
   func documentInteractionControllerDidDismissOpenInMenu(
     _ controller: UIDocumentInteractionController
   ) {
-    self.view.removeFromSuperview()
-    self.removeFromParent()
+    teardown()
   }
 
   func documentInteractionControllerViewControllerForPreview(

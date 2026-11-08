@@ -12,7 +12,7 @@ npm install tauri-plugin-view-api
 
 ```ini
 [dependencies]
-tauri-plugin-view = "0.0.5"
+tauri-plugin-view = "0.0.6"
 ```
 
 **`src-tauri/src/lib.rs`**
@@ -37,17 +37,10 @@ pub fn run() {
 
 ### Android
 
-Application file paths should be replaced with `../`
-
-**`src-tauri/gen/android/app/src/main/res/xml/file_paths.xml`**
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<paths xmlns:android="http://schemas.android.com/apk/res/android">
-  <external-path name="my_images" path="../" />
-  <cache-path name="my_cache_images" path="../" />
-</paths>
-```
+The plugin shares files through the `${applicationId}.fileprovider` provider
+that `tauri android init` generates, whose `file_paths.xml` already covers the
+app's cache and external storage. A file elsewhere needs its directory added
+there.
 
 ## Usage
 

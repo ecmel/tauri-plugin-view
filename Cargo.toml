@@ -1,7 +1,7 @@
 [package]
 name = "tauri-plugin-view"
 description = "A mobile plugin for Tauri for viewing and sharing files."
-version = "0.0.5"
+version = "0.0.6"
 authors = ["Ecmel Ercan"]
 license = "MIT"
 license-file = "LICENSE"

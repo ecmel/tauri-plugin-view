@@ -52,11 +52,15 @@ class ViewPlugin(private val activity: Activity) : Plugin(activity) {
           .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(intent)
       } catch (e: Exception) {
+        // A share target reads the file from EXTRA_STREAM, not from the data.
         val intent = Intent(Intent.ACTION_SEND)
-          .setDataAndType(uri, mime)
+          .setType(mime)
+          .putExtra(Intent.EXTRA_STREAM, uri)
+          .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+        val chooser = Intent.createChooser(intent, null)
           .addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
           .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(intent)
+        context.startActivity(chooser)
       }
     }
 
